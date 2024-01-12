@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (Outros metadados) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='parcelar.js') }}"></script>
+    <script src="{{ url_for('static', filename='confirmar_pagamento.js') }}"></script>
+    <script src="{{ url_for('static', filename='exibir_mensagem.js') }}"></script>
+</head>
+<body>
+    <h1>Realizar Compra</h1>
+    <form id="form-compra" action="{{ url_for('comprar', loja_id=loja.id) }}" method="POST">
+        <input type="hidden" name="cartao_id" value="{{ cartao.id }}">
+        <label for="valor_compra">Valor da Compra:</label>
+        <input type="number" step="0.01" name="valor_compra" id="valor_compra" required>
+        <br>
+        <label for="num_parcelas">Número de Parcelas:</label>
+        <input type="number" min="1" name="num_parcelas" id="num_parcelas" onchange="calcularParcelas()">
+        <span id="valor_parcela"></span>
+        <br>
+        <button type="button" onclick="confirmarPagamentoParcelado()">Confirmar Pagamento</button>
+    </form>
+    <div id="mensagem"></div>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

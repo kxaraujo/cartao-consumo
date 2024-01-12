@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Cartão Consumo - Comércio (cidade x) - (estado x)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% if cartao %}
+        <h1>Lojas Disponíveis</h1>
+        <ul>
+            {% for loja in lojas %}
+                <li>
+                    <strong>{{ loja.nome }}</strong>
+                    <form action="{{ url_for('comprar', loja_id=loja.id) }}" method="POST">
+                        <input type="hidden" name="cartao_id" value="{{ cartao.id }}">
+                        <label for="valor_compra">Valor da Compra:</label>
+                        <input type="number" step="0.01" name="valor_compra" required>
+                        <button type="submit">Comprar</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Saldo Atual: R${{ cartao.saldo }}</h2>
+
+        <a href="{{ url_for('adicionar_saldo', cartao_id=cartao.id) }}">Adicionar Saldo</a>
+        <a href="{{ url_for('historico', cartao_id=cartao.id) }}">Histórico de Compras</a>
+    {% else %}
+        <p>Nenhum cartão disponível. Por favor, adicione um cartão.</p>
+        <a href="{{ url_for('adicionar_saldo') }}">Adicionar Cartão</a>
+    {% endif %}
+</body>
+</html>
