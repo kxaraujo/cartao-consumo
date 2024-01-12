@@ -1,0 +1,46 @@
+# Cartão Consumo
+
+O Cartão Consumo é um sistema simples de fidelidade que permite aos usuários realizar compras em várias lojas e acumular pontos de fidelidade.
+
+## Funcionalidades
+
+- **Lojas Disponíveis:** Exibe uma lista de lojas onde os usuários podem realizar compras.
+
+- **Compra em Loja:** Permite aos usuários realizar compras em uma loja selecionada, acumulando pontos de fidelidade.
+
+- **Saldo Atual:** Exibe o saldo atual de pontos de fidelidade no cartão do usuário.
+
+- **Adicionar Saldo:** Permite aos usuários adicionar saldo ao seu cartão de fidelidade.
+
+- **Histórico de Compras:** Mostra o histórico de compras realizadas pelo usuário.
+
+## Como Executar o Sistema
+
+1. Instale as dependências:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2. Inicialize o banco de dados:
+    ```bash
+    python app.py
+    ```
+
+3. Abra o navegador e acesse [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
+
+## Tecnologias Utilizadas
+
+- Flask: Framework web para Python.
+- SQLAlchemy: Biblioteca ORM para interação com o banco de dados SQLite.
+
+## Estrutura do Projeto
+
+- **app.py:** Arquivo principal que inicia a aplicação e define as rotas.
+- **models.py:** Define os modelos de dados usando SQLAlchemy.
+- **templates:** Contém os arquivos HTML para renderização das páginas.
+- **static:** Armazena arquivos estáticos como folhas de estilo (CSS).
+
+## Contribuindo
+
+Sinta-se à vontade para contribuir, abrir problemas ou sugerir melhorias.
+
